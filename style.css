@@ -1,0 +1,98 @@
+html , body{
+    background-color: #1b1b1b;
+    color: white;
+    margin: 0;
+    padding: 0;
+    line-height: normal ;
+    
+}
+
+header{
+    background-color: #222428;
+    /* color: white ;  */
+}
+
+.header-cont{
+    display: flex;
+    padding: 12px 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+header a{
+    display: inline-block;
+    /* margin-right: 27px; */
+}
+
+.humburger-menu .svg_color{
+    fill: #fff;
+}
+
+.hamburger-menu , .logo , .search-input
+{
+    margin-right: 27px;
+}
+ 
+.logo svg{
+    width: 100px;
+    height: 26px;
+    margin-top: 8 px;
+}
+
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+ 
+.header-btn{
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    font-size: 12px;
+    line-height: 10px;
+    padding: 9px 20px 7px;
+    border-radius: 20px;
+    margin-right: 27px;
+}
+
+
+.search-input
+{
+     display: inline-flex;
+     flex-direction: row;
+     align-items: center;
+     height: 40px;
+     border-radius: 30px;
+     padding: 0 10px;
+     flex: 1;
+     cursor: text;
+     color: #ffffff;
+     font-size: 12px;
+     background-color: #1b1b1b;
+     border: 1px solid hsla(0, 0%, 100%, .1);
+}
+
+.search-input svg{
+    margin: 0 4px;
+}
+
+.search-input .svg_color{
+    fill: #8e8e93;
+}
+
+.search-input input{
+    outline: none;
+    color: #8e8e93;
+    border: none;
+    background-color: transparent;
+}
+
+.login-cta
+{
+    font-size: 12px;
+    color: hsla(0, 0%, 100%, .75);
+    text-decoration: none;
+}
