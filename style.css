@@ -134,6 +134,29 @@ header a {
 /* NAVIGATION SECTION ENDS HERE */
 
 
+/* 2 COLUMN LAYOUT CSS START */
+
+.twocol-layout
+{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.music-libs
+{
+    flex: 7;
+    max-width: calc(100%-90px);
+    padding: 0 45px;
+    margin: 0 auto;
+    max-width: 70%;
+}
+.ad-cont{
+    flex: 2;
+    max-width: 30%;
+    background-color: #1e1e1e;
+}
+
 /* SLIDER CSS START */
 
 .songs-section
@@ -153,6 +176,7 @@ header a {
 {
     display: flex;
     flex-direction: row;
+    overflow: hidden;
     /* justify-content: space-between; */
 }
 
@@ -163,12 +187,25 @@ header a {
     margin-right: 45px;
 }
 
+.song-card:hover
+{
+    .overlay
+    {
+        visibility: visible;
+    }
+}
+
 .image-cont
 {
     width: 160px;
     height: 160px;
     border-radius: 6px;
     overflow: hidden;
+    position: relative;
+}
+.image-cont:hover
+{
+    filter: brightness(.8);
 }
 
 .song-name
@@ -182,7 +219,7 @@ header a {
 .overlay {
 
     position: absolute;
-    display: none;
+    visibility: hidden;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
