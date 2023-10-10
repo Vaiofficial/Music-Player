@@ -15,17 +15,23 @@ body {
     margin: 0 auto;
 }
 
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
 /* HEADER CSS STARTS HERE */
 
 header {
     background-color: #222428;
     top: 0;
     position: sticky;
+    z-index: 200;
 }
 
 .header-cont {
     display: flex;
-    padding: 12px 0;
+    padding: 10px 0;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -110,6 +116,7 @@ header a {
 .navigation-bar {
     top: 60px;
     position: sticky;
+    z-index: 200;
     min-height: 60px;
     background-color: #1b1b1b;
 }
@@ -136,22 +143,21 @@ header a {
 
 /* 2 COLUMN LAYOUT CSS START */
 
-.twocol-layout
-{
+.twocol-layout {
     display: flex;
     flex-direction: row;
     height: 100%;
 }
 
-.music-libs
-{
+.music-libs {
     flex: 7;
-    max-width: calc(100%-90px);
+    max-width: calc(100% -90px);
     padding: 0 45px;
-    margin: 0 auto;
+    margin: 0 auto 100px;
     max-width: 70%;
 }
-.ad-cont{
+
+.ad-cont {
     flex: 2;
     max-width: 30%;
     background-color: #1e1e1e;
@@ -159,60 +165,52 @@ header a {
 
 /* SLIDER CSS START */
 
-.songs-section
-{
+.songs-section {
     margin: 50px 0;
 }
 
-.section-heading
-{
+.section-heading {
     margin-bottom: 20px;
     font-size: 24px;
     color: white;
     text-transform: capitalize;
 }
 
-.songs-cont
-{
+.songs-cont {
     display: flex;
     flex-direction: row;
     overflow: hidden;
     /* justify-content: space-between; */
 }
 
-.song-card
-{
+.song-card {
     display: flex;
     flex-direction: column;
     margin-right: 45px;
 }
 
-.song-card:hover
-{
-    .overlay
-    {
+.song-card:hover {
+    .overlay {
         visibility: visible;
     }
 }
 
-.image-cont
-{
+.image-cont {
     width: 160px;
     height: 160px;
     border-radius: 6px;
     overflow: hidden;
     position: relative;
 }
-.image-cont:hover
-{
+
+.image-cont:hover {
     filter: brightness(.8);
 }
 
-.song-name
-{
+.song-name {
     margin-top: 6px;
     font-size: 16px;
-    color:white;
+    color: white;
 }
 
 
@@ -234,4 +232,101 @@ header a {
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: calc(50% + 1px) 50%;
+}
+
+/* 2 COLUMN LAYOUT ENDS HERE. */
+
+
+/* FOOTER CSS STARTS HERE. */
+
+/* music player css start here */
+
+.music-player {
+    position: fixed;
+    box-sizing: border-box;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: #222428;
+    box-shadow: 0 0 4px 0 rgba(0 0 0 /50%);
+    padding: 15px 25px;
+    border-radius: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.song-cover {
+    border-radius: 3px;
+    overflow: hidden;
+    margin-right: 10px;
+
+}
+
+.t_over {
+    font-size: 16px;
+    color: white;
+
+}
+
+.t_over {
+    font-size: 12px;
+    margin-top: 4px;
+    color: rgba(255, 255, 255, .7);
+}
+
+.song-info {
+    flex-direction: column;
+    overflow: hidden;
+    max-width: 300px;
+    white-space: nowrap;
+}
+
+.music-controls {
+    align-items: center;
+    flex: 3;
+    padding-left: 90px;
+    justify-content: center;
+}
+
+.time {
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, .8);
+    color: rgba(255, 255, 255, .8);
+    color: white;
+    font-size: 12px;
+    padding: 6px 16px;
+}
+
+.current-music-playing {
+    align-items: center;
+    flex: 2;
+}
+
+
+.music-controls button,
+.music-quality button {
+    margin: 0 12px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.music-controls .svg_color,
+.music-quality .svg_color {
+    fill: white;
+}
+
+.play {
+    background-color: red !important;
+    border-radius: 20px;
+    height: 32px;
+    width: 32px;
+}
+
+.music-quality {
+    flex: 1;
+    justify-content: flex-end;
 }
