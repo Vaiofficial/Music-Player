@@ -278,17 +278,11 @@ header a {
 }
 
 .song-info {
-    flex-direction: column;
+    flex-direction: column; 
     overflow: hidden;
     max-width: 300px;
     white-space: nowrap;
-}
-
-.music-controls {
-    align-items: center;
-    flex: 3;
-    padding-left: 90px;
-    justify-content: center;
+    margin-right: 10px;
 }
 
 .time {
@@ -305,6 +299,15 @@ header a {
     flex: 2;
 }
 
+.current-music-playing .svg_color{
+    fill: white;
+}
+
+.music-controls {
+    align-items: center;
+    flex: 3;
+    padding-left: 90px;
+}
 
 .music-controls button,
 .music-quality button {
@@ -314,7 +317,9 @@ header a {
     background-color: transparent;
 }
 
-.music-controls .svg_color,
+.music-controls .svg_color{
+    fill: white;
+}
 .music-quality .svg_color {
     fill: white;
 }
@@ -326,7 +331,15 @@ header a {
     width: 32px;
 }
 
+.next svg{
+    transform: rotateY(180deg);
+}
+
 .music-quality {
     flex: 1;
     justify-content: flex-end;
+}
+
+.hidden{
+    display: none !important;
 }

@@ -1,6 +1,11 @@
 //constants
 const musicLibsContainer = document.getElementById('music-libs');
 const audioPlayer = document.getElementById('audio_player');
+const pausedBtn = document.getElementById('paused');
+const playingBtn = document.getElementById('playing');
+
+const songCurrentTime = document.getElementById('songTimeStart');
+const songTotalTime = document.getElementById('songTotalTime');
 
 var currentSongObj = {};
 var defaultImage = "/Music-Player/assests/images/ppk2.jpg";
@@ -63,20 +68,67 @@ function buildSongCardDom(songObj) {
 
 //MUSIC PLAYER FUNCTIONS
 
-function playSong(songCardEl)
-{
+function playSong(songCardEl) {
     const songObj = JSON.parse(songCardEl.dataset.songobj);
     console.log(songCardEl.dataset.songobj);
     setAndPlayCurrentSong(songObj);
+
+    document.getElementById('music-player').classList.remove('hidden');
+
 }
 
-function setCurrentSong(songObj)
-{
+function setAndPlayCurrentSong(songObj) {
     currentSongObj = songObj;
-    audioPlayer.onpause();
+    audioPlayer.pause();
     audioPlayer.src = songObj.quality.low;
     audioPlayer.currentTime = 0;
-    audioPlayer.onplay();
+    audioPlayer.play();
 
     updatePlayerUi(songObj);
+}
+
+function updatePlayerUi(songObj) {
+    const songImg = document.getElementById('song_img');
+    const songName = document.getElementById('song_name');
+    // const songCurrentTime = document.getElementById('songTimeStart');
+    // const songTotalTime = document.getElementById('songTotalTime');
+    
+    // const pausedBtn = document.getElementById('paused')
+    // const playingBtn = document.getElementById('playing') 
+
+    songImg.src = songObj.image_source;
+    songName.innerHTML = songObj.song_name;
+
+    songCurrentTime.innerHTML = audioPlayer.currentTime;
+    songTotalTime.innerHTML = audioPlayer.duration;
+
+    pausedBtn.style.display = 'none';
+    playingBtn.style.display = 'block';
+}
+
+//play pause ke liye code
+function tooglePlayer() { 
+    if (audioPlayer.paused) {
+        audioPlayer.play();
+    } 
+    else {
+        audioPlayer.pause();
+    }
+
+    pausedBtn.style.display = audioPlayer.paused ? 'block' : 'none';
+    playingBtn.style.display = audioPlayer.paused ? 'none' : 'block';
+}
+
+function updatePlayerTime() {
+    if (!audioPlayer || audioPlayer.paused) return;
+
+    const songCurrentTime = document.getElementById('songTimeStart');
+    songCurrentTime.innerHTML = getTimeString(audioPlayer.currentTime);
+
+    // console.log(parseFloat(audioPlayer.duration).toFixed(2));
+    songTotalTime.innerHTML = getTimeString(audioPlayer.duration);
+}
+
+function getTimeString(time){
+    return isNaN(audioPlayer.duration)?"0:00":Math.floor(time/60)+":"+parseInt((((time/60)%1)*100).toPrecision(2));
 }
